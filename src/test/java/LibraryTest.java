@@ -58,10 +58,31 @@ public class LibraryTest {
         assertEquals(1, library.bookCount());
     }
 
+    @Test
+    public void getBookNumbersByGenreNil(){
+        assertEquals(0, library.bookNumbersByGenre.size());
+    }
 
-//    @Test
-//    public void libraryContainsBooks(){
-//        assertEquals(1,library.bookCount())
-//    }
+    @Test
+    public void addBookToHashMap(){
+        Library library2 = new Library(100);
+        library2.addBook(book1);
+        library2.addBook(book2);
+        library2.addBook(book3);
+        Book book4 = new Book("The Tiger Who Came to Tea", Genre.CHILDRENS);
+        Book book5 = new Book("Elmer", Genre.CHILDRENS);
+        Book book6 = new Book("The Three Railway Engines", Genre.CHILDRENS);
+        Book book7 = new Book("2001", Genre.SCIFI);
+        Book book8 = new Book("Dune", Genre.SCIFI);
+        library2.addBook(book4);
+        library2.addBook(book5);
+        library2.addBook(book6);
+        library2.addBook(book7);
+        library2.addBook(book8);
+        assertEquals((Integer) 4, library2.bookNumbersByGenre.get(Genre.CHILDRENS));
+        assertEquals((Integer) 1, library2.bookNumbersByGenre.get(Genre.HORROR));
+        assertEquals((Integer) 3, library2.bookNumbersByGenre.get(Genre.SCIFI));
+    }
+
 
 }
